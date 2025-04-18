@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Chat from "./components/chat/chat";
 import Detail from "./components/detail/Detail";
 import List from "./components/list/list";
-import Login from "./components/login/login";
+import Login from "./components/login/Login";
 import Notification from "./components/notification/notification";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase";
