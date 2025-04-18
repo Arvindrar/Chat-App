@@ -3,11 +3,17 @@
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 100px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .login .login-item {
-  flex: 1;
+  flex: 1 1 300px;
+  max-width: 450px; /* prevents it from becoming too wide */
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
