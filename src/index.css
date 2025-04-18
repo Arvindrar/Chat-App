@@ -140,3 +140,49 @@ body {
   background-color: rgba(17, 25, 40, 0.9);
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .chatList {
+    height: 25vh;
+    overflow-y: auto;
+  }
+
+  .chat {
+    height: 60vh;
+    overflow: hidden;
+  }
+
+  .chat .center {
+    padding: 10px;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  .chat .bottom {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .chat .bottom input,
+  .sendButton {
+    width: 100%;
+  }
+
+  .detail {
+    height: 15vh;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #dddddd35;
+  }
+
+  .emoji .picker {
+    bottom: 60px;
+  }
+}
