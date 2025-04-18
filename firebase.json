@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist", // Specify your build output folder
+    "rewrites": [
+      {
+        "source": "/**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
