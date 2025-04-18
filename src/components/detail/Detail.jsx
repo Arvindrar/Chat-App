@@ -71,26 +71,6 @@ const Detail = () => {
               </div>
               <img src="./download.png" alt="" className="icon" />
             </div>
-            <div className="photoItem">
-              <div className="photoDetail">
-                <img
-                  src="https://th.bing.com/th/id/R.6dd18590bed0014c999a1967bf556c17?rik=jtPmMO0Z49p6jg&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f7%2fGallery-PNG-Image-HD.png&ehk=YZ4xikdPTrY%2flhwwbRFwuiIuAvuO6F%2f6jCvGrEOz2o0%3d&risl=&pid=ImgRaw&r=0"
-                  alt=""
-                />
-                <span>photo_2024_2.png</span>
-              </div>
-              <img src="./download.png" alt="" className="icon" />
-            </div>
-            <div className="photoItem">
-              <div className="photoDetail">
-                <img
-                  src="https://th.bing.com/th/id/R.6dd18590bed0014c999a1967bf556c17?rik=jtPmMO0Z49p6jg&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f7%2fGallery-PNG-Image-HD.png&ehk=YZ4xikdPTrY%2flhwwbRFwuiIuAvuO6F%2f6jCvGrEOz2o0%3d&risl=&pid=ImgRaw&r=0"
-                  alt=""
-                />
-                <span>photo_2024_2.png</span>
-              </div>
-              <img src="./download.png" alt="" className="icon" />
-            </div>
           </div>
         </div>
         <div className="option">
