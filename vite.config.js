@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
-import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
+import nodePolyfills from "rollup-plugin-node-polyfills";
 
 export default defineConfig({
   plugins: [react()],
@@ -10,16 +9,11 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ["crypto-browserify"],
-    esbuildOptions: {
-      define: {
-        global: "globalThis",
-      },
+  },
+  build: {
+    rollupOptions: {
       plugins: [
-        NodeGlobalsPolyfillPlugin({
-          process: true,
-          buffer: true,
-        }),
-        NodeModulesPolyfillPlugin(),
+        nodePolyfills(), // 👈 this adds polyfills for Node core modules like crypto
       ],
     },
   },
@@ -27,8 +21,6 @@ export default defineConfig({
     alias: {
       crypto: "crypto-browserify",
       stream: "stream-browserify",
-      buffer: "buffer",
-      process: "process/browser",
     },
   },
 });
