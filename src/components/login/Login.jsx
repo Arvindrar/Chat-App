@@ -69,12 +69,16 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-item">
-        <h2>Welcome back,</h2>
-        <form onSubmit={handleLogin}>
-          <input type="text" placeholder="Email" name="email" />
-          <input type="Password" placeholder="Password" name="password" />
-          <button disabled={loading}>{loading ? "Loading" : "Sign In"}</button>
-        </form>
+        <div className="topsign">
+          <h2 className="h2">Welcome back</h2>
+          <form onSubmit={handleLogin}>
+            <input type="text" placeholder="Email" name="email" />
+            <input type="Password" placeholder="Password" name="password" />
+            <button disabled={loading}>
+              {loading ? "Loading" : "Sign In"}
+            </button>
+          </form>
+        </div>
       </div>
       <div className="separator"></div>
       <div className="login-item">

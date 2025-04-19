@@ -19,8 +19,8 @@ body {
 
 /* MAIN CONTAINER */
 .container {
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
+  height: 90vh;
   background-color: rgba(17, 25, 40, 0.85);
   backdrop-filter: blur(12px) saturate(180%);
   display: flex;
@@ -91,98 +91,49 @@ body {
   border-right: 1px solid #dddddd35;
   overflow-y: auto;
 }
-
-/* RESPONSIVE */
+/* MEDIA QUERY FOR MOBILE DEVICES */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-  }
-
-  .chatList {
-    max-height: 35vh;
-  }
-
-  .chat {
-    flex: none;
-    height: 45vh;
-    overflow: hidden;
-  }
-
-  .chat .center {
-    padding: 10px;
-  }
-
-  .chat .bottom {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .chat .bottom input,
-  .chat .bottom button {
-    width: 100%;
-  }
-
-  .detail {
-    flex: none;
-    max-height: 20vh;
-    overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.05);
-    margin-top: auto;
-    border-top: 1px solid #dddddd35;
-  }
-}
-
-/* LOADING */
-.app-loading {
-  padding: 50px;
-  font-size: 28px;
-  text-align: center;
-  background-color: rgba(17, 25, 40, 0.9);
-  border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
+    width: 100vw;
     height: 100vh;
+    flex-direction: column; /* or single column view depending on how you navigate */
   }
 
-  .chatList {
-    height: 25vh;
-    overflow-y: auto;
-  }
-
-  .chat {
-    height: 60vh;
-    overflow: hidden;
-  }
-
-  .chat .center {
-    padding: 10px;
-    gap: 10px;
-    overflow-y: auto;
-    max-height: 100%;
-  }
-
-  .chat .bottom {
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px;
-  }
-
-  .chat .bottom input,
-  .sendButton {
-    width: 100%;
-  }
-
+  .chatList,
+  .chat,
   .detail {
-    height: 15vh;
-    overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-top: 1px solid #dddddd35;
+    width: 100%;
+    height: 100%;
+    /* Hide by default */
   }
 
-  .emoji .picker {
-    bottom: 60px;
+  /* Show only the active section using a class toggle in JS or React */
+  .show-chatList {
+    display: flex;
+  }
+
+  .show-chat {
+    display: flex;
+  }
+
+  .show-detail {
+    display: flex;
+  }
+
+  /* Detail adjustments for mobile */
+  .detail .info {
+    display: none;
+  }
+
+  .detail .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .blockButton {
+    margin-top: 20px;
+    align-self: center;
   }
 }

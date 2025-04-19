@@ -1,26 +1,13 @@
 .chatList {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chatListContent {
   flex: 1;
-  overflow-y: scroll;
-
-  /* ❌ Remove or comment out background-color if you don’t want it to change */
-  /* background-color: rgba(17, 25, 40, 0.6); */
-
-  /* ✅ Keep text color if needed */
-  color: white;
-}
-
-/* ✅ Scrollbar customization stays */
-.chatList::-webkit-scrollbar {
-  width: 8px;
-}
-
-.chatList::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-.chatList::-webkit-scrollbar-track {
-  background-color: transparent;
+  overflow-y: auto;
 }
 
 .chatList .search {
@@ -91,4 +78,23 @@
 .item .texts p {
   font-size: 14px;
   font-weight: 300;
+}
+
+button.logout {
+  padding: 10px;
+  background-color: #1a73e8;
+  cursor: pointer;
+  position: sticky;
+  bottom: 10px;
+  z-index: 10;
+}
+
+.logout {
+  margin: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }

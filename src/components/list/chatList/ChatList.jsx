@@ -3,7 +3,7 @@ import "./chatList.css";
 import AddUser from "./addUser/AddUser";
 import { useUserStore } from "../../../lib/userStore";
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
-import { db } from "../../../lib/firebase";
+import { auth, db } from "../../../lib/firebase";
 import { useChatStore } from "../../../lib/chatStore";
 
 const ChatList = () => {
@@ -86,35 +86,41 @@ const ChatList = () => {
           onClick={() => setAddMode((prev) => !prev)}
         />
       </div>
-      {filteredChats.map((chat) => (
-        <div
-          className="item"
-          key={chat.chatId}
-          onClick={() => handleSelect(chat)}
-          style={{
-            backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
-          }}
-        >
-          <img
-            src={
-              chat.user.blocked.includes(currentUser.id)
-                ? "./avatar.png"
-                : chat.user.profilePic || "./profile2.png"
-            }
-            alt=""
-          />
-          <div className="texts">
-            <span>
-              {chat.user.blocked.includes(currentUser.id)
-                ? "User"
-                : chat.user.username}
-            </span>
-            <p>{chat.lastMessage}</p>
+      <div className="chatListContent">
+        {filteredChats.map((chat) => (
+          <div
+            className="item"
+            key={chat.chatId}
+            onClick={() => handleSelect(chat)}
+            style={{
+              backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
+            }}
+          >
+            <img
+              src={
+                chat.user.blocked.includes(currentUser.id)
+                  ? "./avatar.png"
+                  : chat.user.profilePic || "./profile2.png"
+              }
+              alt=""
+            />
+            <div className="texts">
+              <span>
+                {chat.user.blocked.includes(currentUser.id)
+                  ? "User"
+                  : chat.user.username}
+              </span>
+              <p>{chat.lastMessage}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {addMode && <AddUser />}
+        {addMode && <AddUser />}
+      </div>
+
+      <button className="logout" onClick={() => auth.signOut()}>
+        Logout
+      </button>
     </div>
   );
 };
