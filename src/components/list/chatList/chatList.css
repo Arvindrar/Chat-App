@@ -5,11 +5,6 @@
   overflow: hidden;
 }
 
-.chatListContent {
-  flex: 1;
-  overflow-y: auto;
-}
-
 .chatList .search {
   display: flex;
   align-items: center;
@@ -98,9 +93,18 @@ button.logout {
   border-radius: 8px;
   cursor: pointer;
 }
-.chatList-content {
+.chatListcontent {
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .logout {
+    position: static; /* or remove entirely if you prefer */
+    margin-top: auto;
+    margin-bottom: 10px;
+    align-self: center;
+  }
 }

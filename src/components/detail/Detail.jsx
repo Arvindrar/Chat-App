@@ -72,13 +72,15 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <button className="blockButton" onClick={handleBlock}>
-        {isCurrentUserBlocked
-          ? "You are Blocked!"
-          : isReceiverBlocked
-          ? "User blocked"
-          : "Block User"}
-      </button>
+      <div className="block-button">
+        <button className="blockButton" onClick={handleBlock}>
+          {isCurrentUserBlocked
+            ? "You are Blocked!"
+            : isReceiverBlocked
+            ? "User blocked"
+            : "Block User"}
+        </button>
+      </div>
     </div>
   );
 };

@@ -70,7 +70,7 @@ const ChatList = () => {
 
   return (
     <div className="chatList">
-      <div className="chatList-content">
+      <div className="chatListcontent">
         <div className="search">
           <div className="searchBar">
             <img src="/search.png" alt="" />
@@ -120,10 +120,10 @@ const ChatList = () => {
             {addMode && <AddUser />}
           </div>
         </div>
-        <button className="logout" onClick={() => auth.signOut()}>
-          Logout
-        </button>
       </div>
+      <button className="logout" onClick={() => auth.signOut()}>
+        Logout
+      </button>
     </div>
   );
 };
