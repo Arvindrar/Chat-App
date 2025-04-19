@@ -91,49 +91,47 @@ body {
   border-right: 1px solid #dddddd35;
   overflow-y: auto;
 }
-/* MEDIA QUERY FOR MOBILE DEVICES */
+
 @media (max-width: 768px) {
   .container {
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
-    flex-direction: column; /* or single column view depending on how you navigate */
+  }
+
+  .chatList {
+    height: 20%;
+    flex-shrink: 0;
+    border-bottom: 1px solid #dddddd35;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Scrollable area inside chatList */
+  .chatList .user-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px;
+  }
+
+  .chat {
+    height: 40%;
+    overflow-y: auto;
+    border-bottom: 1px solid #dddddd35;
+    flex-shrink: 0;
+  }
+
+  .detail {
+    height: 20%;
+    overflow-y: auto;
+    flex-shrink: 0;
   }
 
   .chatList,
   .chat,
   .detail {
     width: 100%;
-    height: 100%;
-    /* Hide by default */
-  }
-
-  /* Show only the active section using a class toggle in JS or React */
-  .show-chatList {
-    display: flex;
-  }
-
-  .show-chat {
-    display: flex;
-  }
-
-  .show-detail {
-    display: flex;
-  }
-
-  /* Detail adjustments for mobile */
-  .detail .info {
-    display: none;
-  }
-
-  .detail .user {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .blockButton {
-    margin-top: 20px;
-    align-self: center;
   }
 }

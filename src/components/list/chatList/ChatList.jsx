@@ -70,57 +70,60 @@ const ChatList = () => {
 
   return (
     <div className="chatList">
-      <div className="search">
-        <div className="searchBar">
-          <img src="/search.png" alt="" />
-          <input
-            type="text"
-            placeholder="Search"
-            onChange={(e) => setInput(e.target.value)}
+      <div className="chatList-content">
+        <div className="search">
+          <div className="searchBar">
+            <img src="/search.png" alt="" />
+            <input
+              type="text"
+              placeholder="Search"
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </div>
+          <img
+            src={addMode ? "./minus.png" : "./plus.png"}
+            alt=""
+            className="add"
+            onClick={() => setAddMode((prev) => !prev)}
           />
         </div>
-        <img
-          src={addMode ? "./minus.png" : "./plus.png"}
-          alt=""
-          className="add"
-          onClick={() => setAddMode((prev) => !prev)}
-        />
-      </div>
-      <div className="chatListContent">
-        {filteredChats.map((chat) => (
-          <div
-            className="item"
-            key={chat.chatId}
-            onClick={() => handleSelect(chat)}
-            style={{
-              backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
-            }}
-          >
-            <img
-              src={
-                chat.user.blocked.includes(currentUser.id)
-                  ? "./avatar.png"
-                  : chat.user.profilePic || "./profile2.png"
-              }
-              alt=""
-            />
-            <div className="texts">
-              <span>
-                {chat.user.blocked.includes(currentUser.id)
-                  ? "User"
-                  : chat.user.username}
-              </span>
-              <p>{chat.lastMessage}</p>
-            </div>
+        <div className="user-list">
+          <div className="chatListContent">
+            {filteredChats.map((chat) => (
+              <div
+                className="item"
+                key={chat.chatId}
+                onClick={() => handleSelect(chat)}
+                style={{
+                  backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
+                }}
+              >
+                <img
+                  src={
+                    chat.user.blocked.includes(currentUser.id)
+                      ? "./avatar.png"
+                      : chat.user.profilePic || "./profile2.png"
+                  }
+                  alt=""
+                />
+                <div className="texts">
+                  <span>
+                    {chat.user.blocked.includes(currentUser.id)
+                      ? "User"
+                      : chat.user.username}
+                  </span>
+                  <p>{chat.lastMessage}</p>
+                </div>
+              </div>
+            ))}
+
+            {addMode && <AddUser />}
           </div>
-        ))}
-
-        {addMode && <AddUser />}
+        </div>
+        <button className="logout" onClick={() => auth.signOut()}>
+          Logout
+        </button>
       </div>
-
-      <button className="logout" onClick={() => auth.signOut()}>
-        Logout
-      </button>
     </div>
   );
 };

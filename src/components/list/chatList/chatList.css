@@ -98,3 +98,9 @@ button.logout {
   border-radius: 8px;
   cursor: pointer;
 }
+.chatList-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
